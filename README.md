@@ -18,5 +18,4 @@ de las variables institucionales que permita identificar a estudiantes con riesg
 con riesgo de deserción en el marco de una institución de educación superior.
 
 ## Tecnologías
-- Python
-- Git
+
