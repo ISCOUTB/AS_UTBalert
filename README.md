@@ -33,10 +33,4 @@ con riesgo de deserción en el marco de una institución de educación superior.
    ```bash
    pip install -r requirements.txt
    ```
-
-## Uso
-1. Configurar las variables de entorno / base de datos según `database/script.sql`.
-2. Ejecutar el backend:
-   ```bash
-   python src/backed/main.py
-   ```
+   
