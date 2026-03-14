@@ -33,4 +33,3 @@ con riesgo de deserción en el marco de una institución de educación superior.
    ```bash
    pip install -r requirements.txt
    ```
-   hola 
