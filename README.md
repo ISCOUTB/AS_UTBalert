@@ -40,16 +40,3 @@ con riesgo de deserción en el marco de una institución de educación superior.
    ```bash
    python src/backed/main.py
    ```
-
-## Estructura del proyecto
-- `database/` - Contiene scripts SQL de inicialización.
-- `src/backed/` - Código del backend.
-- `src/frontend/` - Código del frontend (si aplica).
-
-## Contribuir
-1. Crear una rama con nombre descriptivo.
-2. Hacer commits pequeños y claros.
-3. Abrir un Pull Request para revisión.
-
-## Licencia
-Este proyecto está bajo la licencia que decida el equipo (por ejemplo, MIT)."}
