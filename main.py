@@ -50,103 +50,89 @@ def main(page: ft.Page):
 
             # ---------- TARJETAS ----------
             riesgo_alto = ft.Container(
-                width=250,
-                height=130,
-                border_radius=20,
-                bgcolor="#dc2626",
-                padding=20,
-
-                content=ft.Column([
-                    ft.Text(
-                        "RIESGO ALTO",
-                        size=20,
-                        weight=ft.FontWeight.BOLD,
-                        color="white"
-                    ),
-
-                    ft.Text(
-                        "12 estudiantes",
-                        size=40,
-                        weight=ft.FontWeight.BOLD,
-                        color="white"
-                    ),
-
-                    ft.Text(
-                        "Estudiantes críticos",
-                        color="black"
+                width=300,
+                height=140,
+                border_radius=4,
+                bgcolor="#FEE2E2",  # Fondo rojo suave
+                border=ft.border.all(1, "#EF4444"),
+                padding=15,
+                content=ft.Stack([
+                    ft.Column([
+                        ft.Text("RIESGO ALTO", size=14, weight=ft.FontWeight.BOLD, color="#991B1B"),
+                        ft.Text("12", size=48, weight=ft.FontWeight.BOLD, color="black"),
+                    ], spacing=2),
+                    ft.Container(
+                        bgcolor="#FF6B35",  # Naranja UTB
+                        border_radius=4,
+                        width=35,
+                        height=35,
+                        right=0,
+                        bottom=0,
+                        content=ft.Icon(ft.Icons.ARROW_FORWARD, color="white", size=18)
                     )
                 ])
             )
 
             riesgo_medio = ft.Container(
-                width=250,
-                height=130,
-                border_radius=20,
-                bgcolor="#f59e0b",
-                padding=20,
-
-                content=ft.Column([
-                    ft.Text(
-                        "RIESGO MEDIO",
-                        size=20,
-                        weight=ft.FontWeight.BOLD,
-                        color="white"
-                    ),
-
-                    ft.Text(
-                        "28",
-                        size=40,
-                        weight=ft.FontWeight.BOLD,
-                        color="white"
-                    ),
-
-                    ft.Text(
-                        "Necesitan seguimiento",
-                        color="white"
+                width=300,
+                height=140,
+                border_radius=4,
+                bgcolor="#FEF3C7",  # Fondo amarillo ocre suave
+                border=ft.border.all(1, "#F59E0B"),
+                padding=15,
+                content=ft.Stack([
+                    ft.Column([
+                        ft.Text("RIESGO MEDIO", size=14, weight=ft.FontWeight.BOLD, color="#92400E"),
+                        ft.Text("28", size=48, weight=ft.FontWeight.BOLD, color="black"),
+                    ], spacing=2),
+                    ft.Container(
+                        bgcolor="#FF6B35",
+                        border_radius=4,
+                        width=35,
+                        height=35,
+                        right=0,
+                        bottom=0,
+                        content=ft.Icon(ft.Icons.ARROW_FORWARD, color="white", size=18)
                     )
                 ])
             )
 
             riesgo_bajo = ft.Container(
-                width=250,
-                height=130,
-                border_radius=20,
-                bgcolor="#16a34a",
-                padding=20,
-
-                content=ft.Column([
-                    ft.Text(
-                        "RIESGO BAJO",
-                        size=20,
-                        weight=ft.FontWeight.BOLD,
-                        color="white"
-                    ),
-
-                    ft.Text(
-                        "105",
-                        size=40,
-                        weight=ft.FontWeight.BOLD,
-                        color="white"
-                    ),
-
-                    ft.Text(
-                        "Estables",
-                        color="white"
+                width=300,
+                height=140,
+                border_radius=4,
+                bgcolor="#DCFCE7",  # Fondo verde suave
+                border=ft.border.all(1, "#22C55E"),
+                padding=15,
+                content=ft.Stack([
+                    ft.Column([
+                        ft.Text("RIESGO BAJO", size=14, weight=ft.FontWeight.BOLD, color="#166534"),
+                        ft.Text("105", size=48, weight=ft.FontWeight.BOLD, color="black"),
+                    ], spacing=2),
+                    ft.Container(
+                        bgcolor="#FF6B35",
+                        border_radius=4,
+                        width=35,
+                        height=35,
+                        right=0,
+                        bottom=0,
+                        content=ft.Icon(ft.Icons.ARROW_FORWARD, color="white", size=18)
                     )
                 ])
             )
 
             # ---------- TABLA ----------
             tabla = ft.DataTable(
-
+                heading_row_color="#00B5E2",  # Fondo Cyan UTB para los títulos
                 columns=[
-                    ft.DataColumn(ft.Text("Estudiante",color="black")),
-                    ft.DataColumn(ft.Text("Promedio",color="black")),
-                    ft.DataColumn(ft.Text("Asistencia",color="black")),
-                    ft.DataColumn(ft.Text("Riesgo",color="black")),
-                    ft.DataColumn(ft.Text("Acción",color="black"))
+                    ft.DataColumn(ft.Text("ESTUDIANTE", color="white", weight=ft.FontWeight.BOLD)),
+                    ft.DataColumn(ft.Text("PROMEDIO", color="white", weight=ft.FontWeight.BOLD)),
+                    ft.DataColumn(ft.Text("ASISTENCIA", color="white", weight=ft.FontWeight.BOLD)),
+                    ft.DataColumn(ft.Text("RIESGO", color="white", weight=ft.FontWeight.BOLD)),
+                    ft.DataColumn(ft.Text("ACCIÓN", color="white", weight=ft.FontWeight.BOLD))
                 ],
-
+                # Las filas permanecen igual, solo puedes ajustar la propiedad 'shape' de los botones 
+                # internos si deseas que sean rectangulares en lugar de ovalados.
                 rows=[
 
                     ft.DataRow(
@@ -157,15 +143,13 @@ def main(page: ft.Page):
                             ft.DataCell(ft.Text("ALTO", color="black")),
 
                             ft.DataCell(
+                                # Ejemplo para el botón de Juan Pérez
                                 ft.ElevatedButton(
-                                    "Intervenir",
-                                    bgcolor="red",
-                                    color="white",
-                                    on_click=lambda e:
-                                    mostrar_alerta(
-                                        "Juan Pérez",
-                                        "ALTO"
-                                    )
+                                "Intervenir ➔",
+                                bgcolor="#0033A0", # Azul UTB para mantener consistencia
+                                color="white",
+                                style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=4)),
+                                on_click=lambda e: mostrar_alerta("Juan Pérez", "ALTO")
                                 )
                             )
                         ]
@@ -180,14 +164,11 @@ def main(page: ft.Page):
 
                             ft.DataCell(
                                 ft.ElevatedButton(
-                                    "Seguimiento",
-                                    bgcolor="orange",
-                                    color="white",
-                                    on_click=lambda e:
-                                    mostrar_alerta(
-                                        "María Gómez",
-                                        "MEDIO"
-                                    )
+                                "Seguimiento ➔",
+                                bgcolor="#0033A0", # Azul UTB para mantener consistencia
+                                color="white",
+                                style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=4)),
+                                on_click=lambda e: mostrar_alerta("María Gómez", "MEDIO")
                                 )
                             )
                         ]
@@ -202,14 +183,11 @@ def main(page: ft.Page):
 
                             ft.DataCell(
                                 ft.ElevatedButton(
-                                    "Ver",
-                                    bgcolor="green",
-                                    color="white",
-                                    on_click=lambda e:
-                                    mostrar_alerta(
-                                        "Carlos Ruiz",
-                                        "BAJO"
-                                    )
+                                "Ver Detalle ➔",
+                                bgcolor="#0033A0", # Azul UTB para mantener consistencia
+                                color="white",
+                                style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=4)),
+                                on_click=lambda e: mostrar_alerta("Carlos Ruiz", "BAJO")
                                 )
                             )
                         ]
@@ -223,28 +201,33 @@ def main(page: ft.Page):
 
             # ---------- BOTONES ----------
             botones = ft.Row(
-
                 controls=[
-
                     ft.ElevatedButton(
                         "Generar Reporte",
-                        icon=ft.Icons.DOWNLOAD
+                        icon=ft.Icons.DOWNLOAD,
+                        bgcolor="#0033A0",
+                        color="white",
+                        style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=4))
                     ),
-
                     ft.ElevatedButton(
-                        "Actualizar Datos",
-                        icon=ft.Icons.REFRESH
+                        "Sincronizar Banner",
+                        icon=ft.Icons.REFRESH,
+                        bgcolor="#0033A0",
+                        color="white",
+                        style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=4))
                     ),
-
                     ft.ElevatedButton(
                         "Enviar Alertas",
-                        icon=ft.Icons.NOTIFICATIONS
+                        icon=ft.Icons.NOTIFICATIONS,
+                        bgcolor="#0033A0",
+                        color="white",
+                        style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=4))
                     )
                 ],
-
                 alignment=ft.MainAxisAlignment.CENTER,
                 spacing=20
             )
+
 
             # ---------- DASHBOARD ----------
             dashboard = ft.Column(
@@ -282,22 +265,39 @@ def main(page: ft.Page):
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER
             )
 
-            page.add(
-                ft.Container(
-                    expand=True,
-                    bgcolor="white",
-                    alignment=ft.Alignment(0, 0),
-                    padding=30,
-                    content=dashboard
+            # ---------- NAVBAR INSTITUCIONAL ----------
+            navbar = ft.Container(
+                bgcolor="#0033A0",  # Azul UTB
+                padding=ft.padding.symmetric(horizontal=20, vertical=12),
+                content=ft.Row(
+                    controls=[
+                        ft.Row([
+                            ft.Icon(ft.Icons.SCHOOL, color="white", size=28),
+                            ft.Text("UTB", size=35, weight=ft.FontWeight.BOLD, color="white"),
+                            ft.Text(" | Alertas Tempranas", size=18, color="white"),
+                        ], spacing=10),
+                        ft.Row([
+                            ft.Icon(ft.Icons.PERSON, color="white", size=20),
+                            ft.Text("[ Coord. Académico ]", color="white", weight=ft.FontWeight.W_500),
+                        ], spacing=5)
+                    ],
+                    alignment=ft.MainAxisAlignment.SPACE_BETWEEN
                 )
             )
 
-            page.update()
-
-        else:
-            mensaje_login.value = "Completa todos los campos"
-            mensaje_login.color = "red"
-            page.update()
+            # ---------- CONTENEDOR PRINCIPAL ----------
+            page.add(
+                ft.Column([
+                    navbar,
+                    ft.Container(
+                        expand=True,
+                        bgcolor="#F8FAFC",  # Gris muy claro de fondo
+                        alignment=ft.Alignment(0, 0),
+                        padding=30,
+                        content=dashboard
+                    )
+                ], spacing=0, expand=True)
+            )
 
     # ---------------- LOGIN ----------------
 
