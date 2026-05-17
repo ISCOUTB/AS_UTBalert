@@ -34,19 +34,20 @@ def main(page: ft.Page):
             # LIMPIAR PANTALLA
             page.controls.clear()
 
-            # ---------- TITULO ----------
+            # ---------- TITULO PRINCIPAL ----------
             titulo = ft.Text(
-                "Alertas Tempranas",
-                size=34,
+                "MONITOREO DE RIESGO DE DESERCION",  # En mayúsculas, estilo institucional
+                size=26,
                 weight=ft.FontWeight.BOLD,
-                color="black"
+                color="#0f172a"  # Un tono gris casi negro muy elegante
             )
 
             subtitulo = ft.Text(
-                "Monitoreo predictivo de riesgo estudiantil",
-                size=16,
-                color="black"
+                "Panel predictivo de alertas tempranas para el éxito académico",
+                size=14,
+                color="#64748b"  # Gris Slate suave para el subtítulo informativo
             )
+
 
             # ---------- TARJETAS ----------
             riesgo_alto = ft.Container(
@@ -267,12 +268,15 @@ def main(page: ft.Page):
 
             # ---------- NAVBAR INSTITUCIONAL ----------
             navbar = ft.Container(
-                bgcolor="#0033A0",  # Azul UTB
+                bgcolor="#093ad8",  # Azul UTB
                 padding=ft.padding.symmetric(horizontal=20, vertical=12),
                 content=ft.Row(
                     controls=[
                         ft.Row([
-                            ft.Icon(ft.Icons.SCHOOL, color="white", size=28),
+                            ft.Image(
+                                src="nuevo_logo.png",
+                                height=55,
+                            ),
                             ft.Text("UTB", size=35, weight=ft.FontWeight.BOLD, color="white"),
                             ft.Text(" | Alertas Tempranas", size=18, color="white"),
                         ], spacing=10),
